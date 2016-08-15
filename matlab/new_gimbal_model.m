@@ -59,6 +59,10 @@ x = [q; dq];
 
 f = simplify([dq; D^-1*(-C*dq+tau)], 100);
 
-f = matlabFunction(f, 'File', 'get_f');
+f_q = simplify(D^-1 * (-C * dq + tau), 100);
+
+matlabFunction(f, 'File', 'get_f');
+matlabFunction(f_q, 'File', 'get_f_q');
+save('matrices', 'D', 'C', 'tau')
 
 
